@@ -1,1 +1,0 @@
-sumlist(lis,s):-
