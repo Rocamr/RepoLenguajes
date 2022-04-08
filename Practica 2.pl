@@ -1,0 +1,1 @@
+sumlist(lis,s):-
