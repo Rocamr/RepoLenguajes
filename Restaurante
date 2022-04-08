@@ -1,0 +1,26 @@
+carne(polloAsado).
+carne(fileteCerdo).
+entredas(paella).
+entredas(gazpacho).
+entredas(consomé).
+pescado(trucha).
+pescado(bacalao).
+postre(flan).
+postre(nuecesConMiel).
+postre(naranja).
+infoNutri(pella,200).
+infoNutri(gazpacho,150).
+infoNutri(consomé,300).
+infoNutri(fileteDeCerdo,400).
+infoNutri(polloAsado,280).
+infoNutri(trucha,160).
+infoNutri(bacalao,300).
+infoNutri(flan,200).
+infoNutri(nuecesConMiel,500).
+infoNutri(naranja,50).
+platoPrincipal(X):- carne(X).
+platoPrincipal(X):- pescado(X).
+comidaCompleta(X,Y,Z):- platoPrincipal(Y), entradas(Y), postre(Z).
+valorCalo(X,Y,Z)):-
+infoNutri(X),infoNutri(Y),infoNutri(Z)
+X is Y+Z.
