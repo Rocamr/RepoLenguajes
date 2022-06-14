@@ -1,1 +1,44 @@
 #lang racket
+;2
+(define (numero? lista)
+  (cond ((rational?(car lista))
+         (car lista))
+        (else(numero? (cdr lista)))))
+
+;3
+(define (eRepetidos lista)
+  (cond((null? lista)'())
+    ((member (car lista) (cdr lista))
+     (eRepetidos (cdr lista)))
+    (else(cons (car lista) (eRepetidos (cdr lista))))))
+;4
+(define (derecha n lst)
+  (let ((x (min n (length lst))))
+    (append (take-right lst x)
+            (drop-right lst x))))
+
+
+(define (izquierda n lst)
+  (let ((x (min n (length lst))))
+    (append (drop lst x)
+            (take lst x))))
+
+(define (mover dir n lst) 
+  (cond (equal? dir "d") ; "d" es igual a derecha
+       (derecha n lst)
+      (izquierda n lst)
+     ))
+;5
+(define (eliminarReferencia n lista)
+  (map (lambda (x)
+         (cond ((equal? n 0) '())
+               (else -1 n)))))
+;6
+(define (subConjunto list1 list2)
+  (cond((member #f (subConjunto list1 list2))#f)
+  (else #t)))
+
+(define (verSub list1 list2)
+  (map (lambda (x) 
+         (cond ((not(boolean?(member x list2)))#t)
+               (else #f))) list1))
