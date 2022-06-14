@@ -22,4 +22,7 @@ sublist(Xs, Ys):-
           my_append(_, Bs, Ys),
           my_append(Xs, _, Bs).
 invierte([],[]) :- my_reverse(A, D).
-split([H|T],E,[H|F],S) :- split(T,E,F,S).
+split([H|T],H,[],T).
+split([H|T],U,[H|T2],S) :-
+    split(T,U,T2,S).
+
